@@ -3,12 +3,29 @@
 <head>
   <meta charset="UTF-8">
   <title></title>
-  <style href=""></style>
+  <link rel="stylesheet" type="text/css" href="public/css/normalizr.css">
+  <style>
+    body
+    .container {width:600px;margin:40px auto;}
+    input[type=text], input[type=button] {border: 1px solid #CCC;}
+    input.error {border: 1px solid #F00;}
+    .twitt {font-size:12px;padding:10px;border:1px solid #CCC;margin-top:10px;}
+  </style>
 </head>
 <body>
+  <div class="container">
+    <input type="text" id="search-phrase" placeholder="Type a phrase">
+    <input type="button" id="search-submit" value="Search">
+    <div class="twitts"></div>
+  </div>
 
-  <input type="text" id="search-phrase" placeholder="Type a phrase">
-  <input type="button" id="search-submit" value="Search">
+  <script type="text/template" id="twitts">
+    {{#each twitts}}
+    <div class="twitt">
+      <p>{{ text }}</p>
+    </div>
+    {{/each}}
+  </script>
 
   <script data-main="app/main" src="lib/require.js"></script>
 </body>
